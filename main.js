@@ -76,14 +76,17 @@ body {
     来, 有请下一位练习生
 **/
 
-@keyframes show{
-    form{
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-};
+
+@media (min-width: 500px){
+    @keyframes show{
+        form{
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    };
+}
 
 /*
 如果动画没了,我就用这个保底
