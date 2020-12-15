@@ -1,7 +1,14 @@
+// document.body.addEventListener('touchmove', function (e) {
+//     e.preventDefault(); //阻止默认的处理方式(阻止下拉滑动的效果)
+// }, {
+//     passive: false
+// }); //passive 参数不能省略，用来兼容ios和android
+
 const style = document.querySelector('#style');
 const html = document.querySelector('#html');
 
 let string = `
+                                       
 /*
     hi~
     我是方阿森
@@ -30,7 +37,8 @@ body {
 
 #bar {
     position: relative;
-    min-width: 600px;
+    max-width: 600px;
+    min-width: 300px;
     height: 30px;
     background-color: #0000d3;
     border-radius: 10px 10px 0px 0px;
@@ -42,6 +50,24 @@ body {
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+@media (max-width: 500px){
+    #bar {
+        position: relative;
+        min-width: 300px;
+        height: 30px;
+        background-color: #0000d3;
+        border-radius: 10px 10px 0px 0px;
+    }
+    #bar::after{
+        content: 'X';
+        color: floralwhite;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }    
 }
 
 
@@ -73,7 +99,6 @@ let step = () => {
 
         // 判定何时停止定时器
         if (n < string.length - 1) {
-            console.log(string.length);
             step();
         }
 
@@ -93,7 +118,14 @@ let step = () => {
         string2 += string[n];
         html.innerHTML = string2;
         n++;
-    }, 35);
+    }, 35); //35
 }
 
 step();
+
+let close = document.querySelector('#cv>span');
+let cv = document.querySelector('#cv');
+
+close.onclick = () => {
+    cv.style.display = 'none';
+}

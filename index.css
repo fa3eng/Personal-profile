@@ -7,7 +7,8 @@
 
 
 .container {
-    display: flex; /* or inline-flex */
+    display: flex;
+    /* or inline-flex */
     justify-content: space-around;
 }
 
@@ -20,15 +21,16 @@ body {
     font-size: 18px;
     overflow: scroll;
     padding: 30px;
-    min-width: 600px;
+    max-width: 600px;
     max-height: 600px;
-
 }
 
 #cv {
     overflow: scroll;
-    opacity:0;
+    opacity: 0;
     padding: 35px;
+    margin-top: 20px;
+    margin-left: 10px;
     width: 600px;
     height: 600px;
     font-size: 19px;
@@ -38,21 +40,15 @@ body {
     animation: show 3s 3s forwards;
 }
 
-/* @keyframes show{
-    form{
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}; */
-
+#cv>span {
+    display: none;
+}
 
 #first_section {
     margin-top: 10px;
 }
 
-#first_section > p {
+#first_section>p {
     margin-bottom: 10px;
 }
 
@@ -60,11 +56,11 @@ body {
     margin-top: 10px;
 }
 
-#second_section > ul {
+#second_section>ul {
     margin-top: 10xp;
 }
 
-#second_section > ul>li {
+#second_section>ul>li {
     margin-top: 10px;
     margin-left: 20px;
 }
@@ -76,4 +72,62 @@ body {
     color: rgb(240, 236, 230);
     background-color: darkgrey;
     border-radius: 8px;
+}
+
+@media (max-width: 500px) {
+
+    .container {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        height: 600px;
+    }
+
+    #code {
+        position: absolute;
+        font-size: 18px;
+        /* padding: 30px; */
+        min-width: 300px;
+        max-height: 350px;
+    }
+
+    #html {
+        position: absolute;
+        font-size: 16px;
+        overflow: scroll;
+        height: 500px;
+        /* padding: 30px; */
+    }
+
+    #cv {
+        position: absolute;
+        overflow: scroll;
+        z-index: 1;
+        opacity: 0;
+        padding: 35px;
+        margin-top: -30px;
+        margin-left: 5px;
+        width: 340px;
+        height: 580px;
+        font-size: 16px;
+
+        background-color: floralwhite;
+
+        animation: show 3s 3s forwards;
+    }
+
+    #cv>span {
+        display: inline;
+        position: absolute;
+        font-size: 10px;
+        color: grey;
+        bottom: 5px;
+        right: 5px;
+    }
+
+    #last_section {
+        font-size: 15px;
+    }
+
 }
